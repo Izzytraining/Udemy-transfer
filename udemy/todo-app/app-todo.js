@@ -12,18 +12,12 @@ const filters = {
   //and then append child
 renderToDo(todos, filters);
 
-///search text
-document.querySelector("#search-text").addEventListener("input", function (e) {
-  filters.searchText = e.target.value;
-  renderToDo(todos, filters);
-  console.log(e.target.value);
-});
-
 ///Form listener
 
 document.querySelector("#todo-form").addEventListener("submit", function (e) {
   e.preventDefault();
   todos.push({
+    id: uuidv4(),
     body: e.target.elements.newToDO.value,
     completed: false,
   });
@@ -34,6 +28,15 @@ document.querySelector("#todo-form").addEventListener("submit", function (e) {
   e.target.elements.newToDO.value = "";
   renderToDo(todos, filters);
 });
+
+
+///search text
+document.querySelector("#search-text").addEventListener("input", function (e) {
+  filters.searchText = e.target.value;
+  renderToDo(todos, filters);
+  console.log(e.target.value);
+});
+
 
 //CHECKBOX
 document
