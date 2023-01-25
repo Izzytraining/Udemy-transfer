@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotAPP</title>
+  </head>
+  <body>
+    <h1>Notes App</h1>
+    <h2>Notes below!</h2>
+    <label>
+      Find notes:
+      <input id="search-text" type="text" placeholder="make some notes" />
+    </label>
+    <select id="filter-by">
+      <option value="byEdited">Sort by last edited</option>
+      <option value="byCreated">Sort by most recent</option>
+      <option value="alphabetical">Sort by alphabetical order</option>
+    </select>
+    <div id="some-notes"></div>
+    <form id="todo-form">
+      <input type="text" placeholder="new todo" name="newToDO" />
+      <button>Add note</button>
+    </form>
+    <script src="app.js"></script>
+  </body>
+</html>

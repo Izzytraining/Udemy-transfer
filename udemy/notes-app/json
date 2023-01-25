@@ -1,0 +1,19 @@
+///////JSON
+
+// const user = {
+//   name: "Bobby",
+//   lastName: "Drapper",
+//   age: 25,
+// };
+
+// const userJSON = JSON.stringify(user);
+
+// console.log(user);
+// localStorage.setItem("user", userJSON);
+
+// //from local storage
+// const userJSON = localStorage.getItem("user");
+// const user = JSON.parse(userJSON);
+// console.log(`${user.name} ${user.lastName} is ${user.age} years old`);
+
+// ///////
