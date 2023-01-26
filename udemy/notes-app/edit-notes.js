@@ -1,7 +1,7 @@
 
-// const titleEL = document.querySelector('#note-title')
-// const bodyEL = document.querySelector('#note-body')
-// const removeEL = document.querySelector('#removenote')
+const titleEL = document.querySelector('#note-title')
+ const bodyEL = document.querySelector('#note-body')
+ const removeEL = document.querySelector('#removenote')
 const noteId = location.hash.substring(1)
 const notes = getSavedNotes()
 const note = notes.find(function(note){
@@ -14,9 +14,10 @@ if (note === undefined) {
     location.assign(`/index.html`)
 }
 
+//editing the edited notes
 
-document.querySelector('#note-title').value = note.title
+titleEL.value = note.title
+bodyEL.value = note.body
 
-document.querySelector('#note-body').value = note.body
 
  //console.log(notes)
