@@ -1,26 +1,24 @@
-
-const notes = getSavedNotes()
+const notes = getSavedNotes();
 
 const filters = {
-  searchText: ''
-}
+  searchText: "",
+};
 
-renderMyNotes(notes, filters)
+renderMyNotes(notes, filters);
 
-document.querySelector('#notes-form').addEventListener('click', function (e){
-const noteId = uuidv4()
+document.querySelector("#notes-form").addEventListener("submit", function (e) {
+  const noteId = uuidv4();
   notes.push({
     id: noteId,
-    title: '',
-    body:''
-  })
-  
-  saveMyNotes(notes)
+    title: "",
+    body: "",
+  });
+
+  saveMyNotes(notes);
   // renderMyNotes(notes, filters)
   // e.target.elements.newNote.value = "";
-  location.assign(`/edit.html#${noteId}`)
-})
-
+  location.assign(`edit.html#${noteId}`);
+});
 
 ///event listener input
 document.querySelector("#search-text").addEventListener("input", function (e) {
@@ -29,25 +27,9 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
   console.log(e.target.value);
 });
 
-
 document.querySelector("#filter-by").addEventListener("change", function (e) {
   console.log(e.target.value);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // console.log("helloooo");
 
@@ -75,7 +57,7 @@ document.querySelector("#filter-by").addEventListener("change", function (e) {
 //     return note.body.toLowerCase().includes(filters.searchText.toLowerCase());
 //   });
 
-  //  document.querySelector("#some-notes").innerHTML = "";
+//  document.querySelector("#some-notes").innerHTML = "";
 
 //   filteredNotes.forEach(function (note) {
 //     const noteEL = document.createElement("p");
@@ -103,9 +85,6 @@ document.querySelector("#filter-by").addEventListener("change", function (e) {
 //   localStorage.setItem("notes", JSON.stringify(notes));
 //   renderNotes(notes, filters);
 // });
-
-
-
 
 // //dom - document object model
 // // //you can remove things from the html file with document.querySelector
