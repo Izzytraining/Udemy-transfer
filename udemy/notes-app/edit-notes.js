@@ -21,15 +21,16 @@ bodyEL.value = note.body;
 ///title change
 titleEL.addEventListener("input", function (e) {
   note.title = e.target.value;
-  note.updatedAt = DateTime.now();
   saveMyNotes(notes);
+  note.updatedAt = DateTime.now().valueOf();
 });
 
 ///body change
 bodyEL.addEventListener("input", function (e) {
   note.body = e.target.value;
-  note.updatedAt = DateTime.now();
+  // note.updatedAt = DateTime.now();
   saveMyNotes(notes);
+  note.updatedAt = DateTime.now().valueOf();
 });
 
 removeEL.addEventListener("click", function () {
