@@ -68,6 +68,12 @@ const renderMyNotes = function (notes, filters) {
   // return noteEL;
 };
 
+///generate last edited message
+
+const generateLastEdit = function (updatedAt) {
+  return `Last edited ${Date(updatedAt)}`;
+};
+
 // ///read exisiting data
 
 //     //console.log(localStorage.getItem("location"));

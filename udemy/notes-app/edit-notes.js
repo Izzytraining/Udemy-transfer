@@ -2,6 +2,8 @@ const titleEL = document.querySelector("#note-title");
 const bodyEL = document.querySelector("#note-body");
 const editButton = document.querySelector("#edit-btn");
 const removeEL = document.querySelector("#remove-note");
+
+const dateEL = document.querySelector("#last-edited");
 const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
 let note = notes.find(function (note) {
@@ -17,6 +19,7 @@ if (note === undefined) {
 
 titleEL.value = note.title;
 bodyEL.value = note.body;
+dateEL.value = generateLastEdit();
 
 ///title change
 titleEL.addEventListener("input", function (e) {
