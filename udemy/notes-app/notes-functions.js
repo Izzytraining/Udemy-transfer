@@ -1,6 +1,11 @@
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem("notes");
-  return notesJSON !== null ? JSON.parse(notesJSON) : [];
+  ///catching and loading a page if it crashes from an error
+  try {
+    return notesJSON !== null ? JSON.parse(notesJSON) : [];
+  } catch (e) {
+    return [];
+  }
 };
 //save notes
 const saveMyNotes = (notes) => {

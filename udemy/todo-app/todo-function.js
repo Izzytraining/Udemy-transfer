@@ -1,9 +1,13 @@
 //Checking for existing data -
 ///read exisiting data
-const findSavedToDo = function () {
+const findSavedToDo = () => {
   const todosJSON = localStorage.getItem("todos");
+  try {
+    return todosJSON !== null ? JSON.parse(todosJSON) : [];
+  } catch (e) {
+    return [];
+  }
 
-  return todosJSON !== null ? JSON.parse(todosJSON) : [];
   // if (todosJSON !== null) {
   //   return JSON.parse(todosJSON);
   // } else {
@@ -15,13 +19,13 @@ const findSavedToDo = function () {
 
 //Save todos
 
-const saveToDos = function (todos) {
+const saveToDos = (todos) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 
 //rendering the todos
 ///Render the todo
-const renderToDo = function (todos, filters) {
+const renderToDo = (todos, filters) => {
   let filteredToDos = todos.filter(function (todo) {
     const searchTextMatch = todo.body
       .toLowerCase()
@@ -51,7 +55,7 @@ const renderToDo = function (todos, filters) {
 };
 
 //Remove a todo from the list
-const removeToDo = function (id) {
+const removeToDo = (id) => {
   const todosIndex = todos.findIndex(function (todo) {
     return todos.id === id;
   });
@@ -62,7 +66,7 @@ const removeToDo = function (id) {
 };
 
 //addeventhandlercheckbox - toggle to switch between two options
-const todoToggle = function (id) {
+const todoToggle = (id) => {
   const todo = todos.find(function (todo) {
     return todos.id === id;
   });
@@ -73,7 +77,7 @@ const todoToggle = function (id) {
 };
 
 //DOM for list of todos
-const generateToDoDOM = function (todo) {
+const generateToDoDOM = (todo) => {
   const toDOEL = document.createElement("div");
   // const checkbox = document.createElement('input')
   //const textp = document.createElement("p");
@@ -112,7 +116,7 @@ const generateToDoDOM = function (todo) {
 
 //DOM for to dos message summary
 
-const generateMessageDOM = function (inCompleteToDos) {
+const generateMessageDOM = (inCompleteToDos) => {
   const newParagraph = document.createElement("h3");
   newParagraph.textContent = `You have ${inCompleteToDos.length} todos left`;
   return newParagraph;

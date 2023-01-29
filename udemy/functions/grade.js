@@ -27,8 +27,17 @@ if (studentGrade >= 9) {
   console.log("Getting there, you scored an E");
 } else if (studentGrade >= 3) {
   console.log("Needs improvement,  scored an F");
-} else {
+} else if (studentGrade >= 2) {
   console.log("Failed, you scored a G");
+} else {
+  throw Error("Argument must be a number");
+}
+
+try {
+  const result = grade(null);
+  console.log(result);
+} catch (e) {
+  console.log("catch block is running");
 }
 
 ///////////////
