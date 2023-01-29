@@ -1,15 +1,15 @@
+"use strict";
+////
 
-const todos = findSavedToDo()
+const todos = findSavedToDo();
 
 const filters = {
   searchText: "",
   hideCompleted: false,
 };
 
-
-
- //to grab each todo object and then create and element as text content and then query select it to the body 
-  //and then append child
+//to grab each todo object and then create and element as text content and then query select it to the body
+//and then append child
 renderToDo(todos, filters);
 
 ///Form listener
@@ -22,13 +22,12 @@ document.querySelector("#todo-form").addEventListener("submit", function (e) {
     completed: false,
   });
 
-  saveToDos(todos)
+  saveToDos(todos);
 
   console.log(e.target.elements.newToDO.value);
   e.target.elements.newToDO.value = "";
   renderToDo(todos, filters);
 });
-
 
 ///search text
 document.querySelector("#search-text").addEventListener("input", function (e) {
@@ -36,7 +35,6 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
   renderToDo(todos, filters);
   console.log(e.target.value);
 });
-
 
 //CHECKBOX
 document
@@ -47,4 +45,4 @@ document
     renderToDo(todos, filters);
   });
 
-  renderToDo(todos, filters);
+renderToDo(todos, filters);

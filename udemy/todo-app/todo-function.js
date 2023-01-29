@@ -1,3 +1,4 @@
+"use strict";
 //Checking for existing data -
 ///read exisiting data
 const findSavedToDo = () => {

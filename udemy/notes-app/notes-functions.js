@@ -1,3 +1,6 @@
+"use strict";
+////
+
 const getSavedNotes = () => {
   const notesJSON = localStorage.getItem("notes");
   ///catching and loading a page if it crashes from an error

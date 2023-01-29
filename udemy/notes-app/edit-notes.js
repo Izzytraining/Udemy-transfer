@@ -1,3 +1,6 @@
+"use strict";
+////
+
 const titleEL = document.querySelector("#note-title");
 const bodyEL = document.querySelector("#note-body");
 const editButton = document.querySelector("#edit-btn");
