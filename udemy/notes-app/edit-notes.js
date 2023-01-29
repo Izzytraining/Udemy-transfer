@@ -6,7 +6,7 @@ const removeEL = document.querySelector("#remove-note");
 const dateEL = document.querySelector("#last-edited");
 const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
-let note = notes.find(function (note) {
+let note = notes.find((note) => {
   console.log(note.id);
   // console.log(notesId)
   return note.id === noteId;
@@ -22,27 +22,27 @@ bodyEL.value = note.body;
 dateEL.value = generateLastEdit();
 
 ///title change
-titleEL.addEventListener("input", function (e) {
+titleEL.addEventListener("input", (e) => {
   note.title = e.target.value;
   saveMyNotes(notes);
   note.updatedAt = DateTime.now().valueOf();
 });
 
 ///body change
-bodyEL.addEventListener("input", function (e) {
+bodyEL.addEventListener("input", (e) => {
   note.body = e.target.value;
   // note.updatedAt = DateTime.now();
   saveMyNotes(notes);
   note.updatedAt = DateTime.now().valueOf();
 });
 
-removeEL.addEventListener("click", function () {
+removeEL.addEventListener("click", () => {
   removeMyNotes(note.id);
   saveMyNotes(notes);
   location.assign(`index.html`);
 });
 
-window.addEventListener("storage", function (e) {
+window.addEventListener("storage", (e) => {
   if (e.key === "notes") {
     notes = JSON.parse(e.newValue);
     note = notes.find(function (note) {

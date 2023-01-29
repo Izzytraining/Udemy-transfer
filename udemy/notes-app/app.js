@@ -6,7 +6,7 @@ const filters = {
 
 renderMyNotes(notes, filters);
 
-document.querySelector("#notes-form").addEventListener("submit", function (e) {
+document.querySelector("#notes-form").addEventListener("submit", (e) => {
   const noteId = uuidv4();
   const DateTime = luxon.DateTime;
   const dt = DateTime.now();
@@ -27,17 +27,17 @@ document.querySelector("#notes-form").addEventListener("submit", function (e) {
 });
 
 ///event listener input
-document.querySelector("#search-text").addEventListener("input", function (e) {
+document.querySelector("#search-text").addEventListener("input", (e) => {
   filters.searchText = e.target.value;
   renderMyNotes(notes, filters);
   console.log(e.target.value);
 });
 
-document.querySelector("#filter-by").addEventListener("change", function (e) {
+document.querySelector("#filter-by").addEventListener("change", (e) => {
   console.log(e.target.value);
 });
 
-window.addEventListener("storage", function (e) {
+window.addEventListener("storage", (e) => {
   if (e.key === "notes") {
     notes = JSON.parse(e.newValue);
     renderMyNotes(notes, filters);

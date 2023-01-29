@@ -1,23 +1,15 @@
-const getSavedNotes = function () {
+const getSavedNotes = () => {
   const notesJSON = localStorage.getItem("notes");
-
-  if (notesJSON !== null) {
-    return JSON.parse(notesJSON);
-  } else {
-    return [];
-  }
+  return notesJSON !== null ? JSON.parse(notesJSON) : [];
 };
-
 //save notes
-const saveMyNotes = function (notes) {
+const saveMyNotes = (notes) => {
   localStorage.setItem("notes", JSON.stringify(notes));
 };
 
 //Remove a todo from the list
-const removeMyNotes = function (id) {
-  const noteIndex = notes.findIndex(function (note) {
-    return note.id === id;
-  });
+const removeMyNotes = (id) => {
+  const noteIndex = notes.findIndex((note) => note.id === id);
 
   if (noteIndex > -1) {
     notes.splice(noteIndex, 1);
@@ -25,7 +17,7 @@ const removeMyNotes = function (id) {
 };
 
 //DOM for list of notes
-const generateNotesDOM = function (note) {
+const generateNotesDOM = (note) => {
   const notesEL = document.createElement("div");
   const notesText = document.createElement("a");
   const removeButton = document.createElement("button");
@@ -33,7 +25,7 @@ const generateNotesDOM = function (note) {
   //buttonremove
   removeButton.textContent = "x";
   notesEL.appendChild(removeButton);
-  removeButton.addEventListener("click", function () {
+  removeButton.addEventListener("click", () => {
     console.log(notes);
     removeMyNotes(note.id);
     saveMyNotes(notes);
@@ -54,14 +46,14 @@ const generateNotesDOM = function (note) {
 };
 
 ///Render the notes
-const renderMyNotes = function (notes, filters) {
-  const filteredNotes = notes.filter(function (note) {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
+const renderMyNotes = (notes, filters) => {
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+  );
 
   document.querySelector("#some-notes").innerHTML = "";
 
-  filteredNotes.forEach(function (note) {
+  filteredNotes.forEach((note) => {
     const noteEL = generateNotesDOM(note);
     document.querySelector("#some-notes").appendChild(generateNotesDOM(note));
   });
@@ -70,7 +62,7 @@ const renderMyNotes = function (notes, filters) {
 
 ///generate last edited message
 
-const generateLastEdit = function (updatedAt) {
+const generateLastEdit = (updatedAt) => {
   return `Last edited ${Date(updatedAt)}`;
 };
 
