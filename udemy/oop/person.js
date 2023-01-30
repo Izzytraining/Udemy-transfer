@@ -21,13 +21,47 @@ class Person {
   }
 }
 
+///subclasses
+class Employee extends Person {
+  constructor(firstName, lastName, age, position, likes) {
+ super(firstName, lastName, age, likes)
+ this.position = position
+  }
+  getBio() {
+    return `${this.firstName} ${this.lastName} is a ${this.position}`
+  }
+  getYearsLeft() {
+    return 65 - this.age
+  }
+}
 
-const me = new Person("Hayley", "Parson", 67, ['Reading', 'Boardgames']);
-me.setName('Nathalie Moon')
-console.log(me.getBio());
+//subclass challenge
+class Student extends Person {
+  constructor(firstName, lastName, age, grade) {
+super(firstName, lastName, age)
+this.grade = grade
+  }
+  updateGrade(change) {
+    return this.grade += change
+  }
+  getBio() {
+    const status = this.grade >= 5? 'passing' : 'failing'
+    return `${this.firstName} is ${status} the class`
+  }
+}
 
-const person2 = new Person("Barry", "Trotter", 34);
-console.log(person2.getBio());
+
+
+const me = new Employee("Hayley", "Parson", 37, "Writer", ['Reading', 'Boardgames']);
+const meStud = new Student("Evelyn", "Howard", 13, 7)
+console.log(meStud.getBio());
+// me.setName('Nathalie Moon')
+meStud.updateGrade(-2)
+console.log(meStud.getBio());
+
+
+// const person2 = new Person("Barry", "Trotter", 34);
+// console.log(person2.getBio());
 
 //constructor function 'new' and captical letters
 //Prototypal inheritance
