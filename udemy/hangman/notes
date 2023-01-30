@@ -1,0 +1,23 @@
+
+// Hangman.prototype.getStatus = function () {
+// //approach 3
+// const finished = this.word.every((letter) => {
+//   return this.guessedLetters.includes(letter)
+// })
+
+//   //approach 2
+// // const lettersUnguessed = this.word.filter((letter) => {
+// //   return !this.guessedLetters.includes(letter)
+// // })
+// // const finished = lettersUnguessed.length === 0
+
+// //approach 1
+// // let finished = true
+
+// // this.word.forEach((letter) => {
+// //   if(this.guessedLetters.includes(letter)) {
+// //     finished = true
+// //   } else {
+// //     finished = false
+// //   }
+// // })
