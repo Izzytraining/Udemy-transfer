@@ -20,13 +20,17 @@ if (this.remainingGuesses === 0) {
 }
 }
 
-Hangman.prototype.getStatusMessage = function () {
-  if(this.status === 'playing') {
-    return `Remaining guesses: ${this.remainingGuesses}`
-  } else if (this.status === 'failed') {
-    return `Nice try! The word was "${this.word.join('')}"`
-  } else  {
-    return `Great work, you guessed the word!`
+getStatusMessage() {
+  const finished = this.word.every((letter) => {
+    return this.guessedLetters.includes(letter)
+  })
+  
+  if (this.remainingGuesses === 0) {
+    this.status = 'failed'
+  } else if (finished) {
+    this.status = 'finished'
+  } else {
+    this.status = 'playing'
   }
 }
 
