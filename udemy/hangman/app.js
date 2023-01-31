@@ -17,19 +17,28 @@ window.addEventListener("keypress", (e) => {
 
 //making an http request
 
-getPuzzle((error, puzzle) => {
-  if (error) {
-    console.log(`Error: ${error}`);
-  } else {
+getPuzzle("2").then(
+  (puzzle) => {
     console.log(puzzle);
+  },
+  (err) => {
+    console.log(`Error: ${err}`);
   }
-});
+);
 
 // /////////////////////////
-getCountry("GB", (error, country) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(`Country name: ${country.name}`);
+getCountry("GB").then(
+  (country) => {
+    console.log(country.name);
+  },
+  (error) => {
+    console.log(`Error: ${error}`);
   }
-});
+);
+
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(`Country name: ${country.name}`);
+//   }
+// });
