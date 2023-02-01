@@ -23,22 +23,16 @@ const getCountry = (countryCode) => {
       }
     })
     .then((data) => data.find((country) => country.alpha2Code === countryCode));
-  //   return country;
-  // });
 };
-// const countryRequest = new XMLHttpRequest();
 
-// countryRequest.addEventListener("readystatechange", (e) => {
-//   if (e.target.readyState === 4 && e.target.status === 200) {
-//     const data = JSON.parse(e.target.responseText);
-//     const country = data.find(
-//       (country) => country.alpha2Code === countryCode
-//     );
-//     resolve(country);
-//   } else if (e.target.readyStatet === 4) {
-//     reject("Unable to fetch  data");
-//   }
-// });
 
-// countryRequest.open("GET", "https://restcountries.com/v2/all");
-// countryRequest.send();
+/////////////////////////
+const getLocation = () => {
+  return fetch(`https://ipinfo.io/json?token=0ab06b9229e93b`).then((response) => {
+    if (response.status === 200) {
+      return response.json()
+    } else {
+      throw new Error("Unable to fetch url")
+    }
+  })
+}
