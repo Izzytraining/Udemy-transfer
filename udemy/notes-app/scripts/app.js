@@ -36,9 +36,9 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
   console.log(e.target.value);
 });
 
-document.querySelector("#filter-by").addEventListener("change", (e) => {
-  console.log(e.target.value);
-});
+// document.querySelector("#filter-by").addEventListener("change", (e) => {
+//   console.log(e.target.value);
+// });
 
 window.addEventListener("storage", (e) => {
   if (e.key === "notes") {

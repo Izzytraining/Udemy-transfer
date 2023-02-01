@@ -4,26 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="/udemy/notes-app/styles/styles.css">
+    <title>Edit notes</title>
   </head>
   <body>
-    <h1>Edit your notes</h1>
-    <a href="link"></a>
-    <input id="note-title" placeholder="Note Title" />
-    <span id="last-edited"></span>
-    <textarea id="note-body" placeholder="Enter text"></textarea>
-    <!-- <button id="edit-btn" placeholder="Edit">Save</button> -->
-    <br /><br />
-    <button id="remove-note" placeholder="remove">Remove</button>
-    <br />
-    <br />
-    <a href="index.html">Return</a>
+    <div class="header">
+      <div class="container">
+        <h1 class="header__title">Notes App</h1>
+        <h2 class="header__subtitle">Make some notes!</h2>
+      </div>
+    </div>
+    <div class="actions__container">
+      <a href="index.html">Return</a>
+      <!-- <span id="last-edited"></span> -->
+    </div>
+<div class="container"> 
+  <h1>Edit your notes</h1>
+  <a href="link"></a>
+  <input id="note-title" placeholder="Note Title" class="title-input" />
+  
+  <textarea id="note-body" placeholder="Enter text" class="body-input"></textarea>
+  <!-- <button id="edit-btn" placeholder="Edit">Save</button> -->
+  <br /><br />
+  <button id="remove-note" placeholder="remove" class="button">Remove</button>
+  <br />
+  <br />
+</div>
+   
 
     <script src="
     https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
     "></script>
-    <script src="notes-functions.js"></script>
-    <script src="edit-notes.js"></script>
-    <script src="uid.js"></script>
+    <script src="/udemy/notes-app/scripts/notes-functions.js"></script>
+    <script src="/udemy/notes-app/scripts/edit-notes.js"></script>
+    <script src="/udemy/notes-app/scripts/uid.js"></script>
   </body>
 </html>

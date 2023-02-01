@@ -22,7 +22,7 @@ if (note === undefined) {
 
 titleEL.value = note.title;
 bodyEL.value = note.body;
-dateEL.value = generateLastEdit();
+// dateEL.value = generateLastEdit();
 
 ///title change
 titleEL.addEventListener("input", (e) => {
@@ -36,7 +36,7 @@ bodyEL.addEventListener("input", (e) => {
   note.body = e.target.value;
   // note.updatedAt = DateTime.now();
   saveMyNotes(notes);
-  note.updatedAt = DateTime.now().valueOf();
+  // note.updatedAt = DateTime.now().valueOf();
 });
 
 removeEL.addEventListener("click", () => {

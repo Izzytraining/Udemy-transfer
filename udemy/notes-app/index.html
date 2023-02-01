@@ -4,35 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NotAPP</title>
+    <link rel="stylesheet" href="/udemy/notes-app/styles/styles.css">
+    <title>Notes App</title>
   </head>
   <body>
-    <h1>Notes App</h1>
-    <h2>Notes below!</h2>
+    <header class="header">
+    <div class="container">
+      <h1 class="header__title">Notes App</h1>
+      <h2 class="header__subtitle">Make some notes!</h2>
+    </div>
+  </header>
+ <div class="actions">
+  <div class="actions__container">
     <label>
       Find notes:
-      <input id="search-text" type="text" placeholder="Search your notes" />
+      <input id="search-text" type="text" class="input" placeholder="Search your notes" />
     </label>
-    <select id="filter-by">
+    <!-- <select id="filter-by" class="dropdown">
       <option value="byEdited">Sort by last edited</option>
       <option value="byCreated">Sort by most recent</option>
       <option value="alphabetical">Sort by alphabetical order</option>
-    </select>
+    </select> -->
     <br />
-    <div id="some-notes"></div>
-    <form id="notes-form">
-      <input type="text" placeholder="new note" name="newNote" /><br />
-      <br />
-      <button>Add note</button>
-    </form>
-    <span></span>
+ </div>
+ <div id="some-notes"></div>
+ <form id="notes-form">
+   <input type="text" placeholder="new note" name="newNote" /><br />
+   <br />
+   <button>Add note</button>
+ </form>
+ <span></span>
+</div>
+    
     <!-- <a href="edit.html">Edit your notes</a> -->
     <script src="
 https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 "></script>
-    <script src="uid.js"></script>
-    <script src="notes-functions.js"></script>
+    <script src="/udemy/notes-app/scripts/uid.js"></script>
+    <script src="/udemy/notes-app/scripts/notes-functions.js"></script>
 
-    <script src="app.js"></script>
+    <script src="/udemy/notes-app/scripts/app.js"></script>
   </body>
 </html>
