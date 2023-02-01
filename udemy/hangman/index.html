@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link href="/udemy/hangman/styles/style.css" rel="stylesheet">
+    <link href="/udemy/hangman/images/favicon.png" rel="icon">
+    <title>Hangman</title>
   </head>
   <body>
-    <p id="puzzle"></p>
+   <div>
+    <div id="puzzle" class="puzzle"></div>
     <p id="guesses"></p>
-    <button id="reset">Reset</button>
-    <script src="requests.js"></script>
-    <script src="hangman.js"></script>
-    <script src="app.js"></script>
+    <button id="reset" class="button">RESET</button>
+   </div>
+    <script src="/udemy/hangman/scripts/requests.js"></script>
+    <script src="/udemy/hangman/scripts/hangman.js"></script>
+    <script src="/udemy/hangman/scripts/app.js"></script>
   </body>
 </html>
