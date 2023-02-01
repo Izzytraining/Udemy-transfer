@@ -13,7 +13,7 @@ document.querySelector("#notes-form").addEventListener("submit", (e) => {
   const noteId = uuidv4();
   const DateTime = luxon.DateTime;
   const dt = DateTime.now();
-  //console.log(dt.toString());
+  console.log(dt.toString());
 
   notes.push({
     id: noteId,
@@ -24,8 +24,8 @@ document.querySelector("#notes-form").addEventListener("submit", (e) => {
   });
 
   saveMyNotes(notes);
-  // renderMyNotes(notes, filters)
-  // e.target.elements.newNote.value = "";
+  renderMyNotes(notes, filters);
+  e.target.elements.newNote.value = "";
   location.assign(`edit.html#${noteId}`);
 });
 
@@ -36,9 +36,9 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
   console.log(e.target.value);
 });
 
-// document.querySelector("#filter-by").addEventListener("change", (e) => {
-//   console.log(e.target.value);
-// });
+document.querySelector("#filter-by").addEventListener("change", (e) => {
+  console.log(e.target.value);
+});
 
 window.addEventListener("storage", (e) => {
   if (e.key === "notes") {

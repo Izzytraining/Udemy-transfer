@@ -1,6 +1,6 @@
 const puzzleEl = document.querySelector("#puzzle");
-const guessesEl = document.querySelector("#guesses")
-let game1
+const guessesEl = document.querySelector("#guesses");
+let game1;
 // const game1 = new Hangman("Conscious", 11);
 
 // puzzleEl.textContent = game1.puzzle;
@@ -8,34 +8,33 @@ let game1
 
 window.addEventListener("keypress", (e) => {
   const guess = String.fromCharCode(e.charCode);
-  game1.makeGuess(guess); 
-  render()
-})
+  game1.makeGuess(guess);
+  render();
+});
 
 //////////////
 
 const render = () => {
-  puzzleEl.innerHTML = ''
+  puzzleEl.innerHTML = "";
   // puzzleEl.textContent = game1.puzzle;
   guessesEl.textContent = game1.statusMessage;
 
-  game1.puzzle.split('').forEach((letter) => {
-const letterEl = document.createElement('span')
-letterEl.textContent = letter
-puzzleEl.appendChild(letterEl)
-  })
-
-}
+  game1.puzzle.split("").forEach((letter) => {
+    const letterEl = document.createElement("span");
+    letterEl.textContent = letter;
+    puzzleEl.appendChild(letterEl);
+  });
+};
 
 const startGame = async () => {
-const puzzle = await getPuzzle('2')
-game1 = new Hangman(puzzle, 8)
-render()
-}
+  const puzzle = await getPuzzle("2");
+  game1 = new Hangman(puzzle, 8);
+  render();
+};
 
-document.querySelector('#reset').addEventListener('click', startGame)
+document.querySelector("#reset").addEventListener("click", startGame);
 
-startGame()
+startGame();
 
 // //making an http request
 
@@ -47,15 +46,11 @@ startGame()
 //     console.log(`Error: ${err}`);
 //   });
 
-
-
 // ////////////////////////////
 // getCurrentCountry().then((country) => {
 //   console.log(country.name)
 // }).catch((error) => {
 //   console.log(error)
 // })
-
-
 
 // ////////////////////////////

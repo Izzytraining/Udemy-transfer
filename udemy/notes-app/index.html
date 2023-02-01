@@ -4,39 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/udemy/notes-app/styles/styles.css">
+    <link rel="stylesheet" href="/udemy/notes-app/styles/styles.css" />
     <title>Notes App</title>
   </head>
   <body>
     <header class="header">
-    <div class="container">
-      <h1 class="header__title">Notes App</h1>
-      <h2 class="header__subtitle">Make some notes!</h2>
+      <div class="container">
+        <h1 class="header__title">Notes App</h1>
+        <h2 class="header__subtitle">Make some notes!</h2>
+      </div>
+    </header>
+    <div class="actions">
+      <div class="actions__container">
+        <label>
+          Find notes:
+          <input
+            id="search-text"
+            type="text"
+            class="input"
+            placeholder="Search your notes"
+          />
+        </label>
+        <select id="filter-by" class="dropdown">
+          <!-- <option value="byEdited">Sort by last edited</option>
+      <option value="byCreated">Sort by most recent</option> -->
+          <option value="alphabetical">Sort by alphabetical order</option>
+        </select>
+        <br />
+      </div>
+      <div id="some-notes"></div>
+      <form id="notes-form">
+        <!-- <input type="text" placeholder="new note" name="newNote" /><br /> -->
+        <br />
+        <button class="button">Add note</button>
+      </form>
+      <span></span>
     </div>
-  </header>
- <div class="actions">
-  <div class="actions__container">
-    <label>
-      Find notes:
-      <input id="search-text" type="text" class="input" placeholder="Search your notes" />
-    </label>
-    <!-- <select id="filter-by" class="dropdown">
-      <option value="byEdited">Sort by last edited</option>
-      <option value="byCreated">Sort by most recent</option>
-      <option value="alphabetical">Sort by alphabetical order</option>
-    </select> -->
-    <br />
- </div>
- <div id="some-notes"></div>
- <form id="notes-form">
-   <input type="text" placeholder="new note" name="newNote" /><br />
-   <br />
-   <button>Add note</button>
- </form>
- <span></span>
-</div>
-    
-    <!-- <a href="edit.html">Edit your notes</a> -->
+
     <script src="
 https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 "></script>
@@ -45,4 +49,9 @@ https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js
 
     <script src="/udemy/notes-app/scripts/app.js"></script>
   </body>
+  <!-- <footer>
+    <a href="/udemy/notes-app/edit.html" id="edit" rel="pagelink"
+      >Edit your notes</a
+    >
+  </footer> -->
 </html>

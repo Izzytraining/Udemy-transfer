@@ -34,7 +34,7 @@ titleEL.addEventListener("input", (e) => {
 ///body change
 bodyEL.addEventListener("input", (e) => {
   note.body = e.target.value;
-  // note.updatedAt = DateTime.now();
+  note.updatedAt = DateTime.now();
   saveMyNotes(notes);
   // note.updatedAt = DateTime.now().valueOf();
 });
