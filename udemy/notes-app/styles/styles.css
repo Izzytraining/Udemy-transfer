@@ -18,6 +18,10 @@ body {
 
 button {
   cursor: pointer;
+  font-family: monospace;
+  padding: 2px;
+  margin-bottom: 2em;
+  background-color: #ff1919;
 }
 
 a {
@@ -95,6 +99,7 @@ a {
 
 .button {
   background: #43799c;
+  font-family: Arial, Helvetica, sans-serif;
   border: none;
   border-bottom: 2px solid #396684;
   color: white;

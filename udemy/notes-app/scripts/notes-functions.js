@@ -32,7 +32,7 @@ const generateNotesDOM = (note) => {
   const removeButton = document.createElement("button");
 
   // buttonremove
-  removeButton.textContent = "x";
+  removeButton.textContent = "delete";
   notesEL.appendChild(removeButton);
   removeButton.addEventListener("click", () => {
     console.log(notes);

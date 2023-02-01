@@ -3,18 +3,14 @@
 
 const titleEL = document.querySelector("#note-title");
 const bodyEL = document.querySelector("#note-body");
-const editButton = document.querySelector("#edit-btn");
 const removeEL = document.querySelector("#remove-note");
-
 const dateEL = document.querySelector("#last-edited");
+
 const noteId = location.hash.substring(1);
 let notes = getSavedNotes();
-let note = notes.find((note) => {
-  console.log(note.id);
-  // console.log(notesId)
-  return note.id === noteId;
-});
-if (note === undefined) {
+let note = notes.find((note) => note.id === noteId);
+// console.log(notesId)
+if (!note) {
   location.assign(`index.html`);
 }
 
@@ -27,16 +23,15 @@ bodyEL.value = note.body;
 ///title change
 titleEL.addEventListener("input", (e) => {
   note.title = e.target.value;
-  saveMyNotes(notes);
   note.updatedAt = DateTime.now().valueOf();
+  saveMyNotes(notes);
 });
 
 ///body change
 bodyEL.addEventListener("input", (e) => {
   note.body = e.target.value;
-  note.updatedAt = DateTime.now();
-  saveMyNotes(notes);
   // note.updatedAt = DateTime.now().valueOf();
+  saveMyNotes(notes);
 });
 
 removeEL.addEventListener("click", () => {
@@ -48,20 +43,15 @@ removeEL.addEventListener("click", () => {
 window.addEventListener("storage", (e) => {
   if (e.key === "notes") {
     notes = JSON.parse(e.newValue);
-    note = notes.find(function (note) {
-      console.log(note.id);
-      // console.log(notesId)
-      return note.id === noteId;
-    });
-    if (note === undefined) {
-      location.assign(`index.html`);
-    }
+    note = notes.find((note) => note.id === noteId);
 
-    //editing the edited notes
+    if (!note) {
+      location.assign("index.html");
+    }
 
     titleEL.value = note.title;
     bodyEL.value = note.body;
   }
 });
 
-//console.log(notes)
+console.log(notes);
