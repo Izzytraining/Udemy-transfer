@@ -61,7 +61,7 @@ getDataPromise(10)
     return getDataPromise(data);
   })
   .then((data) => {
-    return getDataPromise(data);
+    return "This is some test data";
   })
   .then((data) => {
     console.log(data);
