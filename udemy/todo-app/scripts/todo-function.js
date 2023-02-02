@@ -33,7 +33,6 @@ const renderToDo = (todos, filters) => {
       .includes(filters.searchText.toLowerCase());
     //return todo.body.toLowerCase().includes(filters.searchText.toLowerCase());
     const hideCompletedMatch = !filters.hideCompleted || !todo.completed;
-
     return searchTextMatch && hideCompletedMatch;
   });
 
@@ -50,10 +49,20 @@ const renderToDo = (todos, filters) => {
 
   ///filter to todos
 
-  filteredToDos.forEach(function (todo) {
-    document.querySelector("#todoDiv").appendChild(generateToDoDOM(todo));
-  });
+  if (filteredToDos.length > 0) {
+    filteredToDos.forEach(function (todo) {
+      document.querySelector("#todoDiv").appendChild(generateToDoDOM(todo));
+    });
+  } else {
+    const emptyMessage = document.createElement("p");
+    emptyMessage.classList.add('empty-message')
+    emptyMessage.textContent = "No ToDo to show";
+    document.querySelector('#todoDiv').appendChild(emptyMessage);
+  }
+
 };
+///////////////////////////////////////////////////
+
 
 //Remove a todo from the list
 const removeToDo = (id) => {
@@ -79,9 +88,10 @@ const todoToggle = (id) => {
 
 //DOM for list of todos
 const generateToDoDOM = (todo) => {
-  const toDOEL = document.createElement("div");
+  const toDOEL = document.createElement("label");
   // const checkbox = document.createElement('input')
   //const textp = document.createElement("p");
+  const containerEl = document.createElement('div')
   const checkbox = document.createElement("input");
   const toDOText = document.createElement("span");
   const removeButton = document.createElement("button");
@@ -91,7 +101,7 @@ const generateToDoDOM = (todo) => {
   //  checkbox.textContent = '√'
   checkbox.setAttribute("type", "checkbox");
   checkbox.checked = todo.completed;
-  toDOEL.appendChild(checkbox);
+  containerEl.appendChild(checkbox);
   checkbox.addEventListener("change", function () {
     todoToggle(todos.id);
     saveToDos(todos);
@@ -100,10 +110,11 @@ const generateToDoDOM = (todo) => {
 
   //todo text
   toDOText.textContent = todo.body;
-  toDOEL.appendChild(toDOText);
+  containerEl.appendChild(toDOText);
 
   //buttonremove
-  removeButton.textContent = "x";
+  removeButton.textContent = "remove";
+  removeButton.classList.add('button', 'button--text')
   toDOEL.appendChild(removeButton);
   removeButton.addEventListener("click", function () {
     console.log(todos);
@@ -112,6 +123,12 @@ const generateToDoDOM = (todo) => {
     renderToDo(todos, filters);
   });
 
+
+  ////setup container
+  toDOEL.classList.add('list-item')
+  containerEl.classList.add('list-item__container')
+  toDOEL.appendChild(containerEl)
+
   return toDOEL;
 };
 
@@ -119,6 +136,16 @@ const generateToDoDOM = (todo) => {
 
 const generateMessageDOM = (inCompleteToDos) => {
   const newParagraph = document.createElement("h3");
-  newParagraph.textContent = `You have ${inCompleteToDos.length} todos left`;
+  const plural = inCompleteToDos.length === 1 ? '' : 's'
+  newParagraph.classList.add('list-title')
+
+  newParagraph.textContent = `You have ${inCompleteToDos.length} todo${plural} left`
+  
+  // if (newParagraph.textContent < 1) {
+  //  return `You have ${inCompleteToDos.length} todo left`;
+  // } else if (newParagraph.textContent > 1) {
+  //  return `You have ${inCompleteToDos.length} todos left`;
+  // }
+
   return newParagraph;
 };

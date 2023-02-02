@@ -15,10 +15,13 @@ renderToDo(todos, filters);
 ///Form listener
 
 document.querySelector("#todo-form").addEventListener("submit", function (e) {
+  const text = e.target.elements.newToDO.value.trim()
   e.preventDefault();
+
+if (text.length > 0) {
   todos.push({
     id: uuidv4(),
-    body: e.target.elements.newToDO.value,
+    body: text,
     completed: false,
   });
 
@@ -27,6 +30,10 @@ document.querySelector("#todo-form").addEventListener("submit", function (e) {
   console.log(e.target.elements.newToDO.value);
   e.target.elements.newToDO.value = "";
   renderToDo(todos, filters);
+}
+
+
+ 
 });
 
 ///search text
